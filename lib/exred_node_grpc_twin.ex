@@ -17,6 +17,7 @@ defmodule Exred.Node.GrpcTwin do
 
 
   @name "gRPC Twin"
+  @category "function"
   @info @moduledoc
   @config %{
     name: %{
@@ -31,7 +32,7 @@ defmodule Exred.Node.GrpcTwin do
       attrs: %{max: 15}
     }
   }
-  @ui_attributes: %{left_icon: "extension"}
+  @ui_attributes %{left_icon: "extension"}
 
   use Exred.Library.NodePrototype
 
