@@ -22,7 +22,7 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19.0", only: :dev, runtime: false},
-      {:exred_library, "~> 0.1.11"}
+      {:exred_library, "~> 0.1"}
     ]
   end
 end
