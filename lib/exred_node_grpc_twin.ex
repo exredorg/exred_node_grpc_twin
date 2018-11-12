@@ -15,7 +15,6 @@ defmodule Exred.Node.GrpcTwin do
   The gRPC server on the Elixir side will initiate the bonding for the external node.
   """
 
-
   @name "gRPC Twin"
   @category "function"
   @info @moduledoc
@@ -42,21 +41,27 @@ defmodule Exred.Node.GrpcTwin do
   def node_init(state) do
     me = %Exredrpc.Twin.Ex{process: self()}
     bond_id = state.config.bond_id.value
+
     case Exredrpc.Broker.bond_ex(bond_id, me) do
       :ok ->
-        Logger.info "registered with Broker using bond_id #{inspect bond_id}"
+        Logger.info("registered with Broker using bond_id #{inspect(bond_id)}")
+
       {:error, err} ->
-        Logger.error "failed to bond: #{inspect err}"
+        Logger.error("failed to bond: #{inspect(err)}")
     end
+
     state
   end
 
-
-
-
   @impl true
+  # coming from the broker, forward it out to connected nodes
+  def handle_msg({:grpc_incoming, msg}, state) do
+    Logger.debug("got: #{inspect(msg)}")
+    {msg, state}
+  end
+
+  # coming from a node in the flow, send it to the broker to relay it out through grpc
   def handle_msg(msg, state) do
-    # forward msg to the Broker (to send it to the grpc node)
     Exredrpc.Broker.msg_from_ex(msg)
     {nil, state}
   end
