@@ -6,7 +6,7 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   def project do
     [
       app: :exred_node_grpc_twin,
-      version: "0.1.3",
+      version: "0.1.4",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       description: @description,
@@ -26,7 +26,8 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19.0", only: :dev, runtime: false},
-      {:exred_library, "~> 0.1"}
+      {:exred_library, "~> 0.1"},
+      {:exredrpc, "~> 0.1"}
     ]
   end
 
