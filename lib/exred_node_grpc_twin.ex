@@ -27,13 +27,14 @@ defmodule Exred.Node.GrpcTwin do
     },
     bond_id: %{
       info: "Common id used by this node and the external node to establish the connection",
+      value: "",
       type: "string",
       attrs: %{max: 15}
     }
   }
   @ui_attributes %{left_icon: "extension"}
 
-  use Exred.Library.NodePrototype
+  use Exred.NodePrototype
 
   require Logger
 
