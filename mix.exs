@@ -26,8 +26,11 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19.0", only: :dev, runtime: false},
-      {:exred_nodeprototype, "~> 0.1"},
-      {:exredrpc, "~> 0.1"}
+      # {:exred_nodeprototype, "~> 0.1"},
+      {:exredrpc, "~> 0.1"},
+      # {:exred_node_grpc_server, "~> 0.1.2-alpha2"}
+      {:exred_nodeprototype, path: "../exred_nodeprototype"},
+      {:exred_node_grpc_server, path: "../exred_node_grpc_server"}
     ]
   end
 

@@ -27,7 +27,7 @@ defmodule Exred.Node.GrpcTwin do
     },
     bond_id: %{
       info: "Common id used by this node and the external node to establish the connection",
-      value: "",
+      value: "bondid",
       type: "string",
       attrs: %{max: 15}
     }
