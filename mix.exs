@@ -43,7 +43,7 @@ defmodule Exred.Node.GrpcTwin.MixProject do
         "GitHub" => "https://github.com/exredorg/exred_node_grpc_twin.git",
         "Exred" => "http://exred.org"
       },
-      files: ["lib", "mix.exs", "README.md", "LICENSE"]
+      files: ["lib", "mix.exs", "README.md", "LICENSE", "VERSION"]
     }
   end
 end
