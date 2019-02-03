@@ -2,11 +2,12 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   use Mix.Project
 
   @description "Exred node that pairs with an external service"
+  @version File.read!("VERSION") |> String.trim()
 
   def project do
     [
       app: :exred_node_grpc_twin,
-      version: "0.1.5",
+      version: @version,
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       description: @description,
@@ -25,12 +26,12 @@ defmodule Exred.Node.GrpcTwin.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.19.0", only: :dev, runtime: false},
-      # {:exred_nodeprototype, "~> 0.1"},
+      {:exred_nodeprototype, "~> 0.2"},
       {:exredrpc, "~> 0.1"},
-      # {:exred_node_grpc_server, "~> 0.1.2-alpha2"}
-      {:exred_nodeprototype, path: "../exred_nodeprototype"},
-      {:exred_node_grpc_server, path: "../exred_node_grpc_server"}
+      {:ex_doc, "~> 0.19.0", only: :dev, runtime: false},
+      {:exred_nodetest, "~> 0.1.0", only: :test},
+      # {:exred_node_grpc_server, "~> 0.1", only: test}
+      {:exred_node_grpc_server, path: "../exred_node_grpc_server", only: :test}
     ]
   end
 
@@ -39,7 +40,7 @@ defmodule Exred.Node.GrpcTwin.MixProject do
       licenses: ["MIT"],
       maintainers: ["Zsolt Keszthelyi"],
       links: %{
-        "GitHub" => "https://github.com/exredorg/exred_node_grpc_twin",
+        "GitHub" => "https://github.com/exredorg/exred_node_grpc_twin.git",
         "Exred" => "http://exred.org"
       },
       files: ["lib", "mix.exs", "README.md", "LICENSE"]
